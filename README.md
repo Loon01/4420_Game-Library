@@ -1,1 +1,3 @@
-# 4420_Game-Library
+# 4420 Advanced Database
+
+Game Library Management System
