@@ -6,6 +6,7 @@ PRAGMA foreign_key = ON;
 
 DROP TABLE IF EXISTS Game;
 DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Developer;
 DROP TABLE IF EXISTS Owns;
 
 --Game Table
@@ -14,15 +15,14 @@ CREATE TABLE Game (
     g_name VARCHAR(255),
     genre VARCHAR(255),
     release_date INTEGER,
-    developer VARCHAR(255),
     description TEXT
 );
 
-INSERT INTO Game (g_name, genre, release_date, developer, description) 
-VALUES ('COD', 'shooter', 2026, 'Activision', 'pew-pew');
+INSERT INTO Game (g_name, genre, release_date, description) 
+VALUES ('COD', 'shooter', 2026, 'pew-pew');
 
-INSERT INTO Game (g_name, genre, release_date, developer, description) 
-VALUES ('APEX', 'shooter', 2018, 'Respawn', 'pew-pew');
+INSERT INTO Game (g_name, genre, release_date, description) 
+VALUES ('APEX', 'shooter', 2018, 'pew-pew');
 
 
 --User Table
@@ -34,6 +34,18 @@ CREATE TABLE User (
 
 INSERT INTO User (name, password) 
 VALUES ('username', 'password');
+
+--Dev Table
+CREATE TABLE Developer (
+    dev_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    dev_name VARCHAR(255)
+);
+
+INSERT INTO Developer (dev_name)
+VALUES ('Activision');
+
+INSERT INTO Developer (dev_name)
+VALUES ('Respawn');
 
 --Owns Table
 CREATE TABLE Owns (
