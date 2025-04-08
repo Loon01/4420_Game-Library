@@ -1,15 +1,20 @@
--- When running this sql, do "sqlite3 library.db < library.sql"
+-- 1st: When running this sql, do "sqlite3 library.db < library.sql"
+-- 2nd: Then run "sqlite3 library.db < data.sql"
+-- Alt: OR just run "sqlite3 library.db ".read library.sql" ".read data.sql" in one line
+
 -- Then: In command line, do "litecli library.db"
 -- To exit litecli, do "exit"
 
+-- Turn Foreign Keys on
 PRAGMA foreign_key = ON;
 
+-- Drops table at start up
 DROP TABLE IF EXISTS Game;
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Developer;
 DROP TABLE IF EXISTS Owns;
 
---Game Table
+-- Game Table
 CREATE TABLE Game (
     game_id INTEGER PRIMARY KEY AUTOINCREMENT,
     g_name VARCHAR(255),
@@ -18,36 +23,20 @@ CREATE TABLE Game (
     description TEXT
 );
 
-INSERT INTO Game (g_name, genre, release_date, description) 
-VALUES ('COD', 'shooter', 2026, 'pew-pew');
-
-INSERT INTO Game (g_name, genre, release_date, description) 
-VALUES ('APEX', 'shooter', 2018, 'pew-pew');
-
-
---User Table
+-- User Table
 CREATE TABLE User (
     uid INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(255),
     password VARCHAR(255) --Maybe need to hash the passwords for security reasons
 );
 
-INSERT INTO User (name, password) 
-VALUES ('username', 'password');
-
---Dev Table
+-- Dev Table
 CREATE TABLE Developer (
     dev_id INTEGER PRIMARY KEY AUTOINCREMENT,
     dev_name VARCHAR(255)
 );
 
-INSERT INTO Developer (dev_name)
-VALUES ('Activision');
-
-INSERT INTO Developer (dev_name)
-VALUES ('Respawn');
-
---Owns Table
+-- Owns Table
 CREATE TABLE Owns (
     own_id INTEGER PRIMARY KEY AUTOINCREMENT,
     game_id INTEGER NOT NULL,
@@ -59,11 +48,5 @@ CREATE TABLE Owns (
     FOREIGN KEY (uid) REFERENCES User(uid)
 );
 
-INSERT INTO Owns (game_id, uid, date_bought, date_last_played, hours_played)
-VALUES (2, 1, "2018-11-14", "2025-04-04", 2.5);
-
+-- Turn Foreign Keys off
 PRAGMA foreign_key = OFF;
-
--- Example of inserting to table
---INSERT INTO Table (attribute1, attribute2, ...) 
---  VALUES (value1, value2,....);
