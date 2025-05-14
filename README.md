@@ -14,8 +14,8 @@ Prerequisite:
 - Optional: you can have litecli installed to make outputting the tables more visible
 
 Note:
-- The database is already incuded in this Github under the name "library.db", so you can skip the beginning 
-  parts of the instructions for setting it up and start doing tests.
+- The database under the name "library.db" is outdated but has some data within it. Rebuilding it from the ground up,
+provided in the instruction, may be better. 
 
 Instructions:
  - First you would need to run library.sql to create the tables. you can run it by using the command
