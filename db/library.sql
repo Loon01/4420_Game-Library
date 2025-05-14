@@ -10,17 +10,33 @@ PRAGMA foreign_key = ON;
 
 -- Drops table at start up
 DROP TABLE IF EXISTS Game;
-DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Genre;
 DROP TABLE IF EXISTS Developer;
+DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Owns;
+DROP TABLE IF EXISTS Wants;
 
 -- Game Table
 CREATE TABLE Game (
-    game_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    game_id INTEGER PRIMARY KEY,
     g_name VARCHAR(255),
-    genre VARCHAR(255),
-    release_date INTEGER,
     description TEXT
+);
+
+-- Genres Table (Multivalue attribute from Game)
+CREATE TABLE Genre (
+    game_id INTEGER,
+    genre VARCHAR(50) NOT NULL,
+    PRIMARY KEY (game_id, genre),
+    FOREIGN KEY (game_id) REFERENCES Game(game_id)  
+);
+
+-- Dev Table (Multivalue attribute from Game)
+CREATE TABLE Developer (
+    game_id INTEGER,
+    developer VARCHAR(255) NOT NULL,
+    PRIMARY KEY (game_id, developer),
+    FOREIGN KEY (game_id) REFERENCES Game(game_id)  
 );
 
 -- User Table
@@ -30,20 +46,23 @@ CREATE TABLE User (
     password VARCHAR(255) --Maybe need to hash the passwords for security reasons
 );
 
--- Dev Table
-CREATE TABLE Developer (
-    dev_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    dev_name VARCHAR(255)
-);
-
 -- Owns Table
 CREATE TABLE Owns (
-    own_id INTEGER PRIMARY KEY AUTOINCREMENT,
     game_id INTEGER NOT NULL,
     uid INTEGER NOT NULL,
-    date_bought DATE NOT NULL,
-    date_last_played DATE NOT NULL,
+    date_bought DATE,
+    date_last_played DATE,
     hours_played FLOAT,
+    PRIMARY KEY (uid, game_id),
+    FOREIGN KEY (game_id) REFERENCES Game(game_id),
+    FOREIGN KEY (uid) REFERENCES User(uid)
+);
+
+-- Wants Table
+CREATE TABLE Wants (
+    game_id INTEGER NOT NULL,
+    uid INTEGER NOT NULL,
+    PRIMARY KEY (game_id, uid),
     FOREIGN KEY (game_id) REFERENCES Game(game_id),
     FOREIGN KEY (uid) REFERENCES User(uid)
 );
