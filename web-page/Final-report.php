@@ -73,7 +73,29 @@
                 owning/wanting around 1k games. This results in the owning/wanting table to have around 1 million entries.
                 With this large database, we wanted to make an index to help improve our query searches. However, due to the fact that 
                 sqlite3 in our schools server is so efficient, it is quite difficult to make an index that makes searches faster.
-                However, (talk about inputting indexes anyways with results)
+                However, we were able to get some results from making indexes, one of those being a 0.200sec difference from a query search.
+                
+                One <b>without an index</b>,
+                <sup>
+                    <a href="../images/no-index.png">
+                        <span>[</span>
+                        3
+                        <span>]</span>
+                    </a>
+                </sup>
+
+                and then one <b>with an index</b>.
+                <sup>
+                    <a href="../images/with-index.png">
+                        <span>[</span>
+                        4
+                        <span>]</span>
+                    </a>
+                </sup>
+
+                With our large database, an index will be helpful if we want to make this a system for games similar to Steam, Epic games, etc. like mentioned in our proposal.
+                We hope to be able to work on it more in the future.
+
             </p>
         </div>
 
@@ -96,7 +118,7 @@
                 <sup>
                     <a href="https://www.mockaroo.com">
                         <span>[</span>
-                        3
+                        5
                         <span>]</span>
                     </a>
                 </sup>
@@ -111,7 +133,7 @@
                 <sup>
                     <a href="https://www.postman.com">
                         <span>[</span>
-                        4
+                        6
                         <span>]</span>
                     </a>
                 </sup>
@@ -132,7 +154,7 @@
                 <sup>
                     <a href="https://github.com/Loon01/4420_Game-Library#">
                         <span>[</span>
-                        5
+                        7
                         <span>]</span>
                     </a>
                 </sup>
