@@ -1,5 +1,5 @@
 <?php
-$pages = ["index", "proposal", "week_prog"];
+$pages = ["index", "proposal", "week-13", "week-14", "Final-report"];
 
 // Check if the user is an admin and add the admin_editor page
 //if (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1) {

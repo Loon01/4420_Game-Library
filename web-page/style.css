@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+}
+
+.report {
+  margin: 10px;
+}
+
+.report h1 {
+  text-align: center;
+  font-size: xxx-large;
+}
+
+.report h2 {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.report h3 {
+  margin-bottom: 5px;
+  font-size: x-large;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  float: right;
+  background-color: white;
+  opacity: 1;
+  border: 2px solid black;
+}
+
+.sidebar li a {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text {
+  margin: 10px;
+  font-size: 20px;
+  width: 70%;
+}
+
+.text li {
+  padding: 10px
+}
+
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+li.link {
+    float: left;
+}
+  
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.code-block {
+  border: 2px solid black;;
+  height: 100%;
+  width: 60%;
+}
+
+.text code {
+  width: 50%;
+  font-size: 12px;
+}
